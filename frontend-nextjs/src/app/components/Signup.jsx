@@ -37,7 +37,6 @@ const Signup = () => {
         const data = await res.json();
         if (data.success) {
             setMessage("Signup successful!");
-            setLogin(true);
             router.push("/");
         } else {
             setMessage(data.message || "Signup failed");

@@ -1,14 +1,19 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
+import os
 
+# Initialize Flask app
 app = Flask(__name__)
 CORS(app)
 
+# MongoDB URI
+MONGODB_URI = os.getenv("MONGODB_URI", "mongodb+srv://admin:admin@cluster0.n8sqmsf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+
 # MongoDB setup
-client = MongoClient("mongodb://localhost:27017/")
-db = client["your_db_name"]  # change to your DB name
-users = db["users"]
+client = MongoClient(MONGODB_URI)
+db = client["test"]  # Specify the database name here
+users = db["users"]  # Get the users collection
 
 @app.route('/')
 def home():
@@ -20,6 +25,7 @@ def login():
     email = data.get("email")
     password = data.get("password")
 
+    # Find the user by email in the MongoDB collection
     user = users.find_one({"email": email})
     if not user:
         return jsonify({"success": False, "message": "User not found"}), 404
@@ -34,9 +40,11 @@ def signup():
     email = data.get("email")
     password = data.get("password")
 
+    # Check if user already exists
     if users.find_one({"email": email}):
         return jsonify({"success": False, "message": "User already exists"}), 400
 
+    # Insert the new user
     users.insert_one({"email": email, "password": password})
     return jsonify({"success": True, "message": "Signup successful"})
 

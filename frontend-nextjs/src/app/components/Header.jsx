@@ -1,6 +1,5 @@
-// components/Header.jsx
 "use client";
-import React, {  useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Nav from "./Nav";
 
@@ -23,12 +22,15 @@ const Header = () => {
 
     return (
         <header
-            className={`px-3 fixed top-0 left-0 right-0 z-10 transition-transform duration-300 ease-in-out ${visible
-                    ? "translate-y-0   bg-opacity-20 bg-gradient-to-b from-blue-950 to-transparent "
+            className={`px-3 fixed top-0 left-0 right-0 z-10 transition-all duration-300 ease-in-out ${
+                visible
+                    ? "translate-y-0 bg-opacity-20 bg-gradient-to-b from-blue-950 to-transparent"
                     : "-translate-y-full bg-transparent"
-                }`}
+            }`}
         >
-            <div className="py-4 text-white">
+            <div className={`py-4 text-white transition-all duration-300 ease-in-out ${
+                visible ? "opacity-100" : "opacity-0"
+            }`}>
                 <div className="container mx-auto flex justify-between items-center">
                     <Link href="/">
                         <h1 className="flex flex-row text-4xl font-semibold gap-0">

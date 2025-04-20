@@ -7,8 +7,8 @@ const Messages = ({ messages, isTyping }) => {
   return (
     <div className="bg-transparent p-4 rounded-md overflow-y-auto flex flex-col space-y-2 h-auto overflow-visible w-full">
       {messages.length === 0 ? (
-        <p className="text-blue-700 italic text-center">
-          Salam
+        <p className="text-[#003554] italic text-center">
+          Hello! I am your personal assistant, feel free to ask anything related to the uploaded document!
         </p>
       ) : (
         messages.map((msg, index) => (
@@ -19,17 +19,17 @@ const Messages = ({ messages, isTyping }) => {
             }`}
           >
             <p
-              className={`text-sm text-white opacity-80 mb-2 ${
+              className={`text-sm text-[#003554] opacity-80 mb-2 ${
                 msg.sender === 'bot' ? 'pl-3' : 'pr-3'
               }`}
             >
               {msg.sender === 'bot' ? 'LegalAI' : 'You'}
             </p>
             <div
-              className={`overflow-auto max-w-[50%] h-auto p-3 rounded-[20px] shadow-md ${
+              className={ `px-6 overflow-auto max-w-[50%] h-auto p-3 rounded-[20px]  shadow-md ${
                 msg.sender === 'bot'
-                  ? 'bg-transparent border-2 border-white text-white'
-                  : 'bg-blue-700 text-white'
+                  ? 'bg-[#006494] border-2 border-white text-white'
+                  : 'bg-[#003554]/70 text-white'
               }`}
             >
               <TypingText text={msg.text} />
@@ -45,9 +45,9 @@ const Messages = ({ messages, isTyping }) => {
           </p>
           <div className="overflow-auto max-w-[50%] h-auto p-3 rounded-[20px] shadow-md bg-transparent border-2 border-white text-white">
             <div className="flex space-x-1 animate-pulse">
-              <span className="w-2 h-2 bg-white rounded-full"></span>
-              <span className="w-2 h-2 bg-white rounded-full"></span>
-              <span className="w-2 h-2 bg-white rounded-full"></span>
+              <span className="w-2 h-2 bg-[#003554] rounded-full"></span>
+              <span className="w-2 h-2 bg-[#003554] rounded-full"></span>
+              <span className="w-2 h-2 bg-[#003554] rounded-full"></span>
             </div>
           </div>
         </div>

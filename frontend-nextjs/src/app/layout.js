@@ -3,6 +3,7 @@ import "./globals.css";
 import SpaceBackground from "./components/SpaceBackground";
 import { AppProvider, UserProvider } from "./UserContext"; // Import the AppProvider
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,9 +24,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable}  antialiased bg-white text-black `}
       >
-        <video
+        {/* <video
           autoPlay
           loop
           muted
@@ -34,14 +35,14 @@ export default function RootLayout({ children }) {
         >
           <source src="/bg1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
         <UserProvider>
           <Header />
           {/* <SpaceBackground/> */}
           <div className=" mt-24 min-h-[80vh]">
             {children}
           </div>
-          {/* <Footer /> */}
+          {/* <Footer/> */}
         </UserProvider>
       </body>
     </html>

@@ -52,7 +52,7 @@ export default function Home() {
         className="text-white mt-20 max-w-4xl mx-auto text-center"
       >
         <h1 className="text-6xl md:text-5xl font-bold mb-6">
-          <TextAnim />
+          <TextAnim text={"Welcome to Nameee"}/>
         </h1>
         <p className="text-lg md:text-xl mb-8">
           Description.

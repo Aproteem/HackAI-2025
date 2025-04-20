@@ -8,7 +8,7 @@ const InputField = ({ input, onInputChange, onSend }) => {
       onSubmit={onSend}
       className="mt-4 flex w-full justify-center items-center"
     >
-      <div className="md:w-[700px] w-full rounded-full border-2 border-white justify-between flex">
+      <div className="bg-[#003554]/70 border-[#003554]/70 h-[65px] md:w-[700px] w-full rounded-full border-2  justify-between flex">
         <input
           type="text"
           value={input}
@@ -18,7 +18,7 @@ const InputField = ({ input, onInputChange, onSend }) => {
         />
         <button
           type="submit"
-          className="ml-2 bg-blue-800 text-white p-2 rounded-full"
+          className="ml-2 bg-[#003554] text-white p-5  rounded-full"
         >
           <FaArrowUp />
         </button>

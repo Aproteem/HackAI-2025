@@ -7,9 +7,10 @@ const UserContext = createContext();
 // Context provider component
 export const UserProvider = ({ children }) => {
     const [login, setLogin] = useState(false);
+    const [chatbot, setChatbot] = useState(false);
 
     return (
-        <UserContext.Provider value={{ login, setLogin}}>
+        <UserContext.Provider value={{ login, setLogin, chatbot, setChatbot }}>
             {children}
         </UserContext.Provider>
     );
